@@ -1,6 +1,6 @@
-export const GITHUB_REPO = "https://github.com/FrexCheat/gplt-board-webui";
-export const GITHUB_ISSUES = "https://github.com/FrexCheat/gplt-board-webui/issues";
-export const GITHUB_PULLREQUESTS = "https://github.com/FrexCheat/gplt-board-webui/pulls";
+export const GITHUB_REPO = "https://github.com/FrexCheat/board-gplt-webui";
+export const GITHUB_ISSUES = "https://github.com/FrexCheat/board-gplt-webui/issues";
+export const GITHUB_PULLREQUESTS = "https://github.com/FrexCheat/board-gplt-webui/pulls";
 
 export const PART1_END_INDEX = 7;
 export const PART2_END_INDEX = 11;
