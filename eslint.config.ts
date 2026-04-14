@@ -3,8 +3,8 @@ import antfu from "@antfu/eslint-config";
 export default antfu(
   {
     vue: true,
-    formatters: true,
     pnpm: true,
+    formatters: true,
     typescript: true,
     stylistic: {
       indent: 2,
