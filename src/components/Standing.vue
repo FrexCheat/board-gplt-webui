@@ -8,9 +8,9 @@ import type {
   StudentStanding,
   TeamStanding,
 } from "@/libs/types";
+import { useQueryData } from "@/composables/useQueryData";
 import { buildStudentBoard, buildTeamBoard } from "@/libs/core/board";
 import { exportStandings } from "@/libs/core/export";
-import { useQueryData } from "@/libs/core/useQueryData";
 
 const contestData = ref({} as IContest);
 const studentsData = ref<IStudent[]>([]);

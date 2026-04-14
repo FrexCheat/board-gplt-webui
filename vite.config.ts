@@ -54,18 +54,6 @@ export default defineConfig({
         chunkFileNames: "static/js/[name]-[hash].js",
         entryFileNames: "static/js/[name]-[hash].js",
         assetFileNames: "static/[ext]/[name]-[hash].[ext]",
-        advancedChunks: {
-          groups: [
-            {
-              name(moduleId) {
-                if (moduleId.includes("node_modules")) {
-                  return moduleId.toString().split("node_modules/")[2].split("/")[0].toString();
-                }
-                return null;
-              },
-            },
-          ],
-        },
       },
     },
   },
