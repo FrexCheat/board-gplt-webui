@@ -1,0 +1,4 @@
+shellEmulator: true
+trustPolicy: no-downgrade
+patchedDependencies:
+  harmonyos-sans-sc-webfont-splitted@1.1.0: patches/harmonyos-sans-sc-webfont-splitted@1.1.0.patch
