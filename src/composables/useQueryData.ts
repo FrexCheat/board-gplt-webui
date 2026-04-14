@@ -13,7 +13,7 @@ async function fetch_data(): Promise<QueryData> {
     await fetch("/data/contest.json"),
     await fetch("/data/students.json"),
     await fetch("/data/teams.json"),
-    await fetch("/data/ranking.json"),
+    await fetch("/data/rankings.json"),
   ];
 
   if (!res[0] || res[0].status >= 300 || res[0].status < 200) {
