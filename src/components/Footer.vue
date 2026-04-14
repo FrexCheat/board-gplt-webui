@@ -47,7 +47,7 @@ import FooterLogo from "./icon/FooterLogo.vue";
       </t-tooltip>
     </div>
     <div class="footer_info">
-      <span font-500>© 2023-2025 ZZULI GPLT Contest Board</span>
+      <span font-500>© 2023-2026 ZZULI GPLT Contest Board</span>
     </div>
   </footer>
 </template>
