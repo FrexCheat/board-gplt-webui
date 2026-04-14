@@ -86,6 +86,7 @@ export function exportStandings(stuStandings: StudentStanding[], teamStandings: 
   const teamHeader = [
     "排名",
     "队伍名称",
+    "学校",
     "学院",
     "班级",
     "队员1",
@@ -110,6 +111,7 @@ export function exportStandings(stuStandings: StudentStanding[], teamStandings: 
     return [
       team.rank,
       team.name,
+      team.school,
       team.college || "",
       team.class || "",
       ...studentNames,
@@ -122,9 +124,9 @@ export function exportStandings(stuStandings: StudentStanding[], teamStandings: 
 
   const teamSheetData = [[`${fileName} - 团队排名`], teamHeader, ...teamRows];
   const teamSheet = XLSX.utils.aoa_to_sheet(teamSheetData);
-  teamSheet["!merges"] = [{ s: { r: 0, c: 0 }, e: { r: 0, c: 17 } }];
+  teamSheet["!merges"] = [{ s: { r: 0, c: 0 }, e: { r: 0, c: 18 } }];
   teamSheet["!rows"] = [{ hpt: 34 }, { hpt: 20 }];
-  teamSheet["!cols"] = Array.from({ length: 18 }, (_, col) => {
+  teamSheet["!cols"] = Array.from({ length: 19 }, (_, col) => {
     if (col === 0) {
       return { wch: 6 };
     }
@@ -132,26 +134,30 @@ export function exportStandings(stuStandings: StudentStanding[], teamStandings: 
       return { wch: 35 };
     }
     if (col === 2) {
-      return { wch: 23 };
+      return { wch: 42 };
     }
     if (col === 3) {
+      return { wch: 23 };
+    }
+    if (col === 4) {
       return { wch: 27 };
     }
-    if (col >= 4 && col <= 13) {
+    if (col >= 5 && col <= 14) {
       return { wch: 9 };
     }
     return { wch: 7 };
   });
 
   setCellStyle(teamSheet, 0, 0, titleCellStyle);
-  applyStyleRange(teamSheet, 1, 1, 0, 17, headerCellStyle);
-  applyStyleRange(teamSheet, 2, teamSheetData.length - 1, 0, 17, bodyCellStyle);
+  applyStyleRange(teamSheet, 1, 1, 0, 18, headerCellStyle);
+  applyStyleRange(teamSheet, 2, teamSheetData.length - 1, 0, 18, bodyCellStyle);
   XLSX.utils.book_append_sheet(workBook, teamSheet, "团队排名");
 
   const stuHeader = [
     "排名",
     "姓名",
     "学号",
+    "学校",
     "学院",
     "班级",
     "1-1",
@@ -179,6 +185,7 @@ export function exportStandings(stuStandings: StudentStanding[], teamStandings: 
     stu.rank,
     stu.name,
     stu.id,
+    stu.school,
     stu.college || "",
     stu.class || "",
     ...stu.problems_score.map(p => p.score),
@@ -190,9 +197,9 @@ export function exportStandings(stuStandings: StudentStanding[], teamStandings: 
 
   const stuSheetData = [[`${fileName} - 个人排名`], stuHeader, ...stuRows];
   const stuSheet = XLSX.utils.aoa_to_sheet(stuSheetData);
-  stuSheet["!merges"] = [{ s: { r: 0, c: 0 }, e: { r: 0, c: 23 } }];
+  stuSheet["!merges"] = [{ s: { r: 0, c: 0 }, e: { r: 0, c: 24 } }];
   stuSheet["!rows"] = [{ hpt: 34 }, { hpt: 20 }];
-  stuSheet["!cols"] = Array.from({ length: 24 }, (_, col) => {
+  stuSheet["!cols"] = Array.from({ length: 25 }, (_, col) => {
     if (col === 0) {
       return { wch: 6 };
     }
@@ -203,20 +210,23 @@ export function exportStandings(stuStandings: StudentStanding[], teamStandings: 
       return { wch: 15 };
     }
     if (col === 3) {
-      return { wch: 23 };
+      return { wch: 42 };
     }
     if (col === 4) {
+      return { wch: 23 };
+    }
+    if (col === 5) {
       return { wch: 27 };
     }
-    if (col >= 5 && col <= 19) {
+    if (col >= 6 && col <= 20) {
       return { wch: 6 };
     }
     return { wch: 7 };
   });
 
   setCellStyle(stuSheet, 0, 0, titleCellStyle);
-  applyStyleRange(stuSheet, 1, 1, 0, 23, headerCellStyle);
-  applyStyleRange(stuSheet, 2, stuSheetData.length - 1, 0, 23, bodyCellStyle);
+  applyStyleRange(stuSheet, 1, 1, 0, 24, headerCellStyle);
+  applyStyleRange(stuSheet, 2, stuSheetData.length - 1, 0, 24, bodyCellStyle);
   XLSX.utils.book_append_sheet(workBook, stuSheet, "个人排名");
 
   const buffer = XLSX.write(workBook, {
