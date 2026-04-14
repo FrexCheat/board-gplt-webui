@@ -1,24 +1,24 @@
-# Vite + Rolldown + TypeScript + Vue 3 + ESLint
+# board-gplt-webui
 
 ## Project Setup
 
 ```sh
-pnpm install
+pnpm i
 ```
 
-### Compile and Hot-Reload for Development
+## Compile and Hot-Reload for Development
 
 ```sh
 pnpm dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## Type-Check, Compile and Minify for Production
 
 ```sh
 pnpm build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Lint
 
 ```sh
 pnpm lint
