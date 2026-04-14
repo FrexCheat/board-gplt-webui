@@ -1,5 +1,4 @@
 {
-  "unocss.disable": true,
   "prettier.enable": false,
   "editor.formatOnSave": false,
 
