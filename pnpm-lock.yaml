@@ -31,6 +31,9 @@ importers:
       tdesign-vue-next:
         specifier: ^1.19.0
         version: 1.19.0(vue@3.5.32(typescript@6.0.2))
+      ts-md5:
+        specifier: ^2.0.1
+        version: 2.0.1
       vue:
         specifier: ^3.5.32
         version: 3.5.32(typescript@6.0.2)
@@ -2346,6 +2349,10 @@ packages:
     resolution: {integrity: sha512-EDyGAwH1gO0Ausm9gV6T2nUvBgXT5kGoCMJPllOaooZ+4VvJiKBdZE7wK18N1deEowhcUptS+5GXZK8U/fvpwA==}
     peerDependencies:
       typescript: '>=4.0.0'
+
+  ts-md5@2.0.1:
+    resolution: {integrity: sha512-yF35FCoEOFBzOclSkMNEUbFQZuv89KEQ+5Xz03HrMSGUGB1+r+El+JiGOFwsP4p9RFNzwlrydYoTLvPOuICl9w==}
+    engines: {node: '>=18'}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -5047,6 +5054,8 @@ snapshots:
     dependencies:
       picomatch: 4.0.4
       typescript: 6.0.2
+
+  ts-md5@2.0.1: {}
 
   tslib@2.8.1:
     optional: true

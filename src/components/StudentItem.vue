@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { StudentStanding } from "@/libs/types";
+import { Md5 } from "ts-md5";
 
 const props = defineProps<{
   id: string;
@@ -19,14 +20,18 @@ function isRenderByVisible() {
   <div ref="el" class="standing_item_container">
     <div v-if="isRenderByVisible()">
       <div class="standing_item_title">
-        <span>{{ props.standingData.name }} ——— {{ props.standingData.college }} ——— {{ props.standingData.class }}</span>
+        <span>
+          {{ props.standingData.name }} ——— {{ props.standingData.school }}
+          {{ props.standingData.college ? ` ——— ${props.standingData.college}` : "" }}
+          {{ props.standingData.class ? ` ——— ${props.standingData.class}` : "" }}
+        </span>
       </div>
       <div class="standing_item_row_container">
         <div class="standing_item_row_rank">
           <span>{{ props.standingData.rank }}</span>
         </div>
         <div class="p-head">
-          <img src="../assets/images/logo-zzuli.webp" alt="logo">
+          <img :src="`/data/logos/${Md5.hashStr(props.standingData.school).substring(0, 8)}.webp`" alt="logo">
         </div>
         <div class="p-pipe">
           <t-tooltip

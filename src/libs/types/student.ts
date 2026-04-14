@@ -14,8 +14,8 @@ export interface StudentStanding {
   team_id: string;
   name: string;
   school: string;
-  college: string;
-  class: string;
+  college?: string;
+  class?: string;
   rank: number;
   score: number;
   problems_score: IProblem[];
