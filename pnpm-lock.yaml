@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   harmonyos-sans-sc-webfont-splitted@1.1.0:
-    hash: 272e3ded46880ee2f9eaff39327b8465de6df4072271de03caf73950e6e57822
+    hash: 6cbde27cdc3a40229a8091ea10ebad0b2bf1ec59f38c8135f795543e4c57becd
     path: patches/harmonyos-sans-sc-webfont-splitted@1.1.0.patch
 
 importers:
@@ -24,7 +24,7 @@ importers:
         version: 2.0.5
       harmonyos-sans-sc-webfont-splitted:
         specifier: ^1.1.0
-        version: 1.1.0(patch_hash=272e3ded46880ee2f9eaff39327b8465de6df4072271de03caf73950e6e57822)(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)
+        version: 1.1.0(patch_hash=6cbde27cdc3a40229a8091ea10ebad0b2bf1ec59f38c8135f795543e4c57becd)(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)
       tdesign-icons-vue-next:
         specifier: ^0.4.4
         version: 0.4.4(vue@3.5.32(typescript@6.0.2))
@@ -4184,7 +4184,7 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  harmonyos-sans-sc-webfont-splitted@1.1.0(patch_hash=272e3ded46880ee2f9eaff39327b8465de6df4072271de03caf73950e6e57822)(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2):
+  harmonyos-sans-sc-webfont-splitted@1.1.0(patch_hash=6cbde27cdc3a40229a8091ea10ebad0b2bf1ec59f38c8135f795543e4c57becd)(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2):
     dependencies:
       cn-font-split: 6.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)
     transitivePeerDependencies:

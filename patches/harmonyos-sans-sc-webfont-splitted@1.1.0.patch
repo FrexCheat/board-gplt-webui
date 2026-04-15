@@ -17,3 +17,22 @@ index e81fb6cbd209903a21c96b5da87257696f444426..df38f22261e90ecc94de099aef665c63
 -:lang(ja) {
 -    font-family: 'HarmonyOS Sans SC', sans-serif;
 -}
+\ No newline at end of file
+diff --git a/package.json b/package.json
+index 5ac27cdf6b5a0ee66177c95c17af54e5c522c7ba..71ec9a9a58356251fa268531d90c1c7dc36124c6 100644
+--- a/package.json
++++ b/package.json
+@@ -6,10 +6,10 @@
+         "dist/",
+         "main.js"
+     ],
+-    "main": "dist/index.css",
+-    "style": "dist/index.css",
++    "main": "dist/Regular.css",
++    "style": "dist/Regular.css",
+     "exports": {
+-        "default": "./dist/index.css"
++        "default": "./dist/Regular.css"
+     },
+     "scripts": {
+         "test": "echo \"Error: no test specified\" && exit 1",
