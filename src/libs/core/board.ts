@@ -141,16 +141,16 @@ export function buildTeamBoard(contest: IContest, students: IStudent[], teams: I
     _result.part1.status = _result.part1.score >= contest.standard_1;
 
     _result.part2.ratio = (_result.part2.score / TEAM_PART2_MAX_SCORE) * 100;
-    _result.part2.status = _result.part2.score >= contest.standard_2;
+    _result.part2.status = _result.part1.status && _result.part2.score >= contest.standard_2;
 
     _result.part3.ratio = (_result.part3.score / TEAM_PART3_MAX_SCORE) * 100;
 
     // determine total score based on status
     if (_result.part1.status) {
       _result.score += _result.part2.score;
-      if (_result.part2.status) {
-        _result.score += _result.part3.score;
-      }
+    }
+    if (_result.part1.status && _result.part2.status) {
+      _result.score += _result.part3.score;
     }
 
     result.push(_result);
