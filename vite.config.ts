@@ -48,12 +48,42 @@ export default defineConfig({
   },
 
   build: {
-    chunkSizeWarningLimit: 4000,
+    assetsInlineLimit: 7168,
+    chunkSizeWarningLimit: 700,
     rolldownOptions: {
       output: {
         chunkFileNames: "static/js/[name]-[hash].js",
         entryFileNames: "static/js/[name]-[hash].js",
         assetFileNames: "static/[ext]/[name]-[hash].[ext]",
+        codeSplitting: {
+          groups: [
+            {
+              name: "ui",
+              test: /node_modules[\\/](@tdesign-vue-next|tdesign-vue-next|tdesign-icons-vue-next)[\\/]/,
+              priority: 20,
+            },
+            {
+              name: "vue",
+              test: /node_modules[\\/](vue|@vue|@vueuse)[\\/]/,
+              priority: 15,
+            },
+            {
+              name: "xlsx",
+              test: /node_modules[\\/](xlsx-js-style)[\\/]/,
+              priority: 15,
+            },
+            {
+              name: "sc-font",
+              test: /node_modules[\\/](harmonyos-sans-sc-webfont-splitted)[\\/]/,
+              priority: 15,
+            },
+            {
+              name: "vendor",
+              test: /node_modules[\\/]/,
+              priority: 10,
+            },
+          ],
+        },
       },
     },
   },
