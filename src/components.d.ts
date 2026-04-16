@@ -29,6 +29,7 @@ declare module 'vue' {
     TeamItem: typeof import('./components/TeamItem.vue')['default']
     TLink: typeof import('tdesign-vue-next')['Link']
     TLoading: typeof import('tdesign-vue-next')['Loading']
+    TSelect: typeof import('tdesign-vue-next')['Select']
     TTooltip: typeof import('tdesign-vue-next')['Tooltip']
     UsergroupIcon: typeof import('tdesign-icons-vue-next')['UsergroupIcon']
     UserIcon: typeof import('tdesign-icons-vue-next')['UserIcon']

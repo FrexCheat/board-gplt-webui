@@ -54,6 +54,11 @@ const tableColumns = ref<TableProps["columns"]>([
   { title: "总分", colKey: "score", align: "center", width: 70, fixed: "right" },
 ]);
 
+const optionalSchools = ref<{ label: string; value: string }[]>([]);
+const selectedSchools = ref<string[]>([]);
+const selectedStudentsStandings = ref<StudentStanding[]>([]);
+const selectedTeamsStandings = ref<TeamStanding[]>([]);
+
 function buildStudentTableData(data: StudentStanding[]): TableProps["data"] {
   const res: TableProps["data"] = [];
   data.forEach((student) => {
@@ -90,6 +95,11 @@ function onStudentItemClick(standing: StudentStanding) {
   isModalVisible.value = true;
 }
 
+function onSelectedSchoolsChange() {
+  selectedStudentsStandings.value = studentsStandings.value.filter(student => selectedSchools.value.length === 0 || selectedSchools.value.includes(student.school));
+  selectedTeamsStandings.value = teamsStandings.value.filter(team => selectedSchools.value.length === 0 || selectedSchools.value.includes(team.school));
+}
+
 watch(data, async () => {
   if (data.value === null || data.value === undefined) {
     return;
@@ -104,6 +114,17 @@ watch(data, async () => {
   teamsStandings.value = buildTeamBoard(contestData.value, studentsData.value, teamsData.value, rankingData.value);
 
   title.value = `${contestData.value.title} | ZZULI GPLT Board`;
+
+  if (!firstLoaded.value) {
+    const _schools = teamsData.value.map(team => team.school);
+    optionalSchools.value = Array.from(new Set(_schools)).map(school => ({
+      label: school,
+      value: school,
+    }));
+  }
+
+  selectedStudentsStandings.value = studentsStandings.value.filter(student => selectedSchools.value.length === 0 || selectedSchools.value.includes(student.school));
+  selectedTeamsStandings.value = teamsStandings.value.filter(team => selectedSchools.value.length === 0 || selectedSchools.value.includes(team.school));
 
   firstLoaded.value = true;
 }, { immediate: true });
@@ -174,11 +195,22 @@ watch(data, async () => {
         </div>
       </div>
 
+      <div class="selector_container">
+        <t-select
+          v-model="selectedSchools"
+          :options="optionalSchools"
+          placeholder="筛选学校"
+          :on-change="onSelectedSchoolsChange"
+          multiple
+          clearable
+        />
+      </div>
+
       <div class="standing_wrapper">
         <div class="standing_container">
           <div v-if="currentTab === 0">
             <TeamItem
-              v-for="(team, idx) in teamsStandings"
+              v-for="(team, idx) in selectedTeamsStandings"
               :id="team.id"
               :key="team.id"
               :idx="idx"
@@ -188,7 +220,7 @@ watch(data, async () => {
           </div>
           <div v-if="currentTab === 1">
             <StudentItem
-              v-for="(student, idx) in studentsStandings"
+              v-for="(student, idx) in selectedStudentsStandings"
               :id="student.id"
               :key="student.id"
               :idx="idx"
@@ -292,5 +324,16 @@ watch(data, async () => {
   justify-content: flex-end;
   gap: 1rem;
   /* 16px */
+}
+
+.selector_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.selector_container .t-select__wrap {
+  width: 1270px;
 }
 </style>
