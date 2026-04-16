@@ -1,7 +1,0 @@
-@font-face {
-  font-family: "Commit Mono";
-  src:
-    local("Commit Mono"),
-    url("../assets/fonts/commit_mono_variable.woff2") format("woff2");
-  font-display: swap;
-}

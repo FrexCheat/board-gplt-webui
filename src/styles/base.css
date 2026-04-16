@@ -1,11 +1,17 @@
-@import "./fonts.css";
+@font-face {
+  font-family: "Commit Mono";
+  src:
+    local("Commit Mono"),
+    url("../assets/fonts/commit_mono_variable.woff2") format("woff2");
+  font-display: swap;
+}
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
   font-weight: normal;
+  margin: 0;
 }
 
 html,
@@ -24,7 +30,7 @@ body {
 
 :root {
   --td-font-family: "Commit Mono", "HarmonyOS Sans SC", sans-serif;
-  --td-font-family-medium: "Commit Mono", "HarmonyOS Sans SC";
+  --td-font-family-medium: "Commit Mono", "HarmonyOS Sans SC", sans-serif;
 }
 
 @media (min-width: 640px) {

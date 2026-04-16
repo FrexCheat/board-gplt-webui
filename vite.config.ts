@@ -58,22 +58,17 @@ export default defineConfig({
         codeSplitting: {
           groups: [
             {
-              name: "ui",
+              name: "tdesign",
               test: /node_modules[\\/](@tdesign-vue-next|tdesign-vue-next|tdesign-icons-vue-next)[\\/]/,
               priority: 20,
             },
             {
               name: "vue",
-              test: /node_modules[\\/](vue|@vue|@vueuse)[\\/]/,
+              test: /node_modules[\\/](vue|@vue)[\\/]/,
               priority: 15,
             },
             {
-              name: "xlsx",
-              test: /node_modules[\\/](xlsx-js-style)[\\/]/,
-              priority: 15,
-            },
-            {
-              name: "sc-font",
+              name: "harmonyos",
               test: /node_modules[\\/](harmonyos-sans-sc-webfont-splitted)[\\/]/,
               priority: 15,
             },
